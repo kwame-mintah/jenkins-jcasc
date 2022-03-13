@@ -1,0 +1,15 @@
+build-timeout
+command-launcher
+github-branch-source
+matrix-auth
+workflow-aggregator
+pipeline-github-lib
+pipeline-stage-view
+ssh-slaves
+timestamper
+ws-cleanup
+axb
+jdk-tool
+simple-theme-plugin
+digitalocean-plugin
+configuration-as-code

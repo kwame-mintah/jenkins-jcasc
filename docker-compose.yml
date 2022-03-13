@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  jenkins:
+    build: .
+    image: jenkins-jcasc
+    environment:
+      - CASC_JENKINS_CONFIG=/var/jenkins_home/casc_configs
+      - DEVELOPMENT_USER_PASSWORD=${DEVELOPMENT_USER_PASSWORD}
+    privileged: true
+    user: root
+    ports:
+      - 8083:8080
+      - 50003:50000
+    container_name: jenkins-jcasc
+    volumes:
+      - ./jenkins_data:/var/jenkins_home
+      - ./casc_configs:/var/jenkins_home/casc_configs
+      - /var/run/docker.sock:/var/run/docker.sock
