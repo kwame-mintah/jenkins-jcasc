@@ -1,5 +1,14 @@
 jenkins:
-  systemMessage: "\n\nFingers crossed everything is working as expected..\n\n"
+  systemMessage: |
+    This Jenkins is 100% configured and managed 'as code'.
+    Config is now mostly handled by the 'Jenkins Configuration as Code' (JCasC) plugin.
+    JCasC config can be found in the jenkins.yaml file in the $JENKINS_HOME/casc_configs/ folder.
+  noUsageStatistics: true
+  globalNodeProperties:
+  - envVars:
+      env:
+      - key: "JENKINS_GIT_CREDENTIALS"
+        value: "c05f3f1d-b545-47be-95bc-bc7bd5c1989e"
   agentProtocols:
   - "JNLP4-connect"
   - "Ping"
@@ -43,6 +52,18 @@ globalCredentialsConfiguration:
   configuration:
     providerFilter: "none"
     typeFilter: "none"
+credentials:
+  system:
+    domainCredentials:
+    - credentials:
+      - basicSSHUserPrivateKey:
+          description: "Jenkins SSH Key"
+          id: "c05f3f1d-b545-47be-95bc-bc7bd5c1989e"
+          privateKeySource:
+            directEntry:
+              privateKey: ${JENKINS_GIT_SSH_KEY}
+          scope: SYSTEM
+          username: "jenkins"
 security:
   apiToken:
     creationOfLegacyTokenEnabled: false
