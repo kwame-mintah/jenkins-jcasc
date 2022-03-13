@@ -92,6 +92,18 @@ unclassified:
     hideCredentials: false
     showEntireCommitSummaryInChanges: false
     useExistingAccountWithSameEmail: false
+  globalLibraries:
+    libraries:
+    - defaultVersion: "master"
+      name: "jenkins-shared-library"
+      retriever:
+        modernSCM:
+          scm:
+            git:
+              id: "7474cade-f7b5-4496-b977-5d898a78cfbb"
+              remote: ${GIT_JENKINS_SHARED_LIBRARY_REPO:-https://github.com/kwame-mintah/jenkins-shared-library}
+              traits:
+              - "gitBranchDiscovery"
   junitTestResultStorage:
     storage: "file"
   location:
