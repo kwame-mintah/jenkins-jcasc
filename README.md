@@ -27,6 +27,17 @@
 
 An additional user account is created on as per the configuration, the account name is `development` and has a default password set to `Pas5w0rd!GH`. This password can be changed by setting the following environment variable `DEVELOPMENT_USER_PASSWORD` on your system.
 
+### Environment variables
+
+The following environment can be set in your Jenkins container, if not overridden will default to a value set in the config. If marked as 'Required' please ensure you have set the value.
+
+| Environment variable            | Description                                                            | Default value                                          | Required? |
+| ------------------------------- | ---------------------------------------------------------------------- | ------------------------------------------------------ | --------- |
+| GIT_JENKINS_SHARED_LIBRARY_REPO | The Git repository that your jenkins-shared-library is located         | https://github.com/kwame-mintah/jenkins-shared-library | No        |
+| DEVELOPMENT_USER_PASSWORD       | The `development` user account password                                | Pas5w0rd!GH                                            | No        |
+| JENKINS_GIT_SSH_KEY             | The Jenkins SSH Credentials to use when cloning your git repositories. | ''                                                     | Yes       |
+
+
 ### Pre-Commit hooks
 
 Git hook scripts are very helpful for identifying simple issues before pushing any changes. Hooks will run on every commit automatically pointing out issues in the code e.g. trailing whitespace.
