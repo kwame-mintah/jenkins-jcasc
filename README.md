@@ -37,6 +37,13 @@ The following environment can be set in your Jenkins container, if not overridde
 | DEVELOPMENT_USER_PASSWORD       | The `development` user account password                                | Pas5w0rd!GH                                            | No        |
 | JENKINS_GIT_SSH_KEY             | The Jenkins SSH Credentials to use when cloning your git repositories. | ''                                                     | Yes       |
 
+### Making changes to the config
+
+Edit the `jenkins.yml` file found in the `/casc_configs/` directory, with your changes you would like to make. Then using the Jenkins user interface:
+
+Manage Jenkins -> Configuration -> Reload existing configuration
+
+NOTE: Configuration for a Jenkins controller should be implemented either with CasC or with the UI, but not by both.
 
 ### Pre-Commit hooks
 
