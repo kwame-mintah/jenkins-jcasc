@@ -131,11 +131,3 @@ tool:
   mavenGlobalConfig:
     globalSettingsProvider: "standard"
     settingsProvider: "standard"
-  terraform:
-      installations:
-      - name: "terraform"
-        properties:
-        - installSource:
-            installers:
-            - terraformInstaller:
-                id: "1.1.7-darwin-amd64"

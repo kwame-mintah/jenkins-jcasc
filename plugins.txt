@@ -13,4 +13,3 @@ jdk-tool
 simple-theme-plugin
 digitalocean-plugin
 configuration-as-code
-terraform
