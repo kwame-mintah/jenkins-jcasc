@@ -1,6 +1,6 @@
 # Jenkins Configuration as Code (JCasC)
 
- Project to hold my Jenkins instance and it's configuration settings using the [JCasC plugin](https://www.jenkins.io/doc/book/managing/casc/).
+ Project to hold my Jenkins instance and it's configuration settings using the [JCasC plugin](https://www.jenkins.io/doc/book/managing/casc/). YMMV.
 
 ## Development
 
@@ -44,6 +44,26 @@ Edit the `jenkins.yml` file found in the `/casc_configs/` directory, with your c
 Manage Jenkins -> Configuration -> Reload existing configuration
 
 NOTE: Configuration for a Jenkins controller should be implemented either with CasC or with the UI, but not by both.
+
+### Installing Terraform and Terragrunt
+
+This project does not make use of the [Terraform plugin](https://plugins.jenkins.io/terraform/) provided in Jenkins. Currently the Terraform binary will need to be available in the container that Jenkins is being run in, steps below can be followed to download Terraform and Terragrunt:
+
+1. Find the release you would like to download from [Terraform releases](https://www.terraform.io/downloads)
+2. Enter the container that Jenkins is running on `docker exec -it jenkins /bin/sh`
+3. Download the release binary into the container with `curl --output terraform_1.1.7_linux_amd64.zip https://releases.hashicorp.com/terraform/1.1.7/terraform_1.1.7_linux_amd64.zip`
+4. Unzip the file downloaded with `unzip terraform_1.1.7_linux_amd64.zip`
+5. Move the unzipped directory to the bin with `mv terraform usr/local/bin/`
+6. Verify Terraform command is available with `terraform `
+
+The same steps are required for installed Terragrunt
+1. Find the release of terragrunt you would like to download from [Terragrunt releases](https://github.com/gruntwork-io/terragrunt/releases)
+2. Enter the container that Jenkins is running on `docker exec -it jenkins /bin/sh`
+3. Download the file with `curl -OL https://github.com/gruntwork-io/terragrunt/releases/download/v0.36.6/terragrunt_linux_amd64`
+4. Change the filename with `mv terragrunt_linux_amd64 terragrunt`
+5. Change the permissions on the file `chmod u+x terragrunt`
+6. Move the file to the bin with `mv terragrunt /usr/local/bin/terragrunt`
+7. Verify that Terragrunt command is available with `terragrunt`
 
 ### Pre-Commit hooks
 
